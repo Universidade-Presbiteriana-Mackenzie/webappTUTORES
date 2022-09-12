@@ -51,7 +51,7 @@ if choice == "Saldo_ESTOQUE":
     with a1:
         st.info(
         """
-        ##### ***Saldo atual = ***
+        #*Saldo atual = *
         """
         )
     with a2:
