@@ -10,21 +10,14 @@ import plotly.graph_objects as go
 import altair as alt
 from urllib.error import URLError
 
-r = requests.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vR0IgfLCiAnnWqcgQTx1xz96FcSFUMDEHD-aWHT2DA-5Lfh9QfZYZbcYwqAhrVKRSrV3D7moFA8Hqka/pub?gid=980421081&single=true&output=csv')
+r = requests.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vRV5baBORyvGtdK6PClZKGT_ZnnYwTvnqx5EaSENnJDCHt7ScASx9Ztsc96cBW10v3ftgBQB25LfUc2/pub?gid=513803270&single=true&output=csv')
 data = r.content
 df = pd.read_csv(BytesIO(data), index_col=0)
-df.columns = ['email', 'Nome', 'NotaMiniCursos', 'NotaOrganizacao', 'Sugestao']
+df.columns = ['e-mail', 'QTD']
 nREGISTROS = len(df)
-df1 = df['NotaMiniCursos'].value_counts()
-nPromotores = float(df1[9]) + float(df1[10])
-PorcentagemPromotoes = nPromotores/nREGISTROS
-# Count frequency value using GroupBy.size()
-df1 = df.groupby(['NotaMiniCursos']).size()
-nDetratores = 0
-PorcentagemDetratores = nDetratores/nREGISTROS
-nPromotores = float(df1[9]) + float(df1[10])
-PorcentagemPromotoes = nPromotores/nREGISTROS
-NPS = (PorcentagemPromotoes - PorcentagemDetratores)*100
+print(nREGISTROS)
+indice = list(range(0, nREGISTROS))
+saldo = sum(df['QTD'])
 
 
 image01 = Image.open('desenvolvimento.jpg')
@@ -38,7 +31,7 @@ st.title("Tecnologia de Informação e Comunicação - TIC (6ºT)")
 #st.write("Como já deve ter percebido, o método st.write() é usado para escrita de texto e informações gerais!")
 st.subheader("------ **Desenvolvido por: Massaki de O. Igarashi** -----")
 
-menu = ["NPS_MackRede_13abr22",
+menu = ["Saldo_ESTOQUE",
         "Análise de Dados",
         # "Texto_Colunas",
         # "Texto_Markdown",
@@ -47,26 +40,21 @@ menu = ["NPS_MackRede_13abr22",
 choice = st.sidebar.selectbox("Menu de Opções",menu)
 st.sidebar.write("Texto Side Bar")
 
-if choice == "NPS_MackRede_13abr22": 
-    st.header("Avaliações do Evento MackRede 13/abr/22")
+if choice == "Saldo_ESTOQUE": 
+    st.header("Saldo em ESTOQUE")
     st.markdown(
     """
-    - Se -100 < NPS <=  0: Zona Crítica
-    - Se    0 < NPS <= 50: Zona de Aperfeiçoamento
-    - Se   50 < NPS <= 75: Zona de Qualidade
-    - Se   75 < NPS <=100: Zona de Excelência
+    Analise de Dados de Estoque
     """)
-    st.header("NPS = ")  
-    st.subheader(NPS) 
-    if (-100 < NPS and NPS <=  0): 
-        st.warning("Zona Crítica")
-    if (0 < NPS and NPS <= 50): 
-        st.info("Zona de Aperfeiçoamento")
-    if (50 < NPS and NPS <= 75):
-        st.info("Zona de Qualidade")
-    if (75 < NPS and NPS<=100): 
-        st.info("Zona de Excelência")    
-   
+   import altair as alt 
+   import pandas as pd 
+   score_data = pd.DataFrame({ 
+    'Indice': list(range(0, nREGISTROS)), 
+    'QTD': df['QTD']
+   }) 
+   alt.Chart(score_data).mark_bar().encode(     
+    x='Indice',     
+    y='QTD')    
 elif choice == "Texto_Colunas":       
     st.subheader("Texto formatado em colunas")
     st.write("Veja a seguir uma opção de formatação em colunas")    
