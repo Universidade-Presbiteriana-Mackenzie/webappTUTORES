@@ -46,8 +46,7 @@ if choice == "Saldo_ESTOQUE":
     """
     Analise de Dados de Estoque
     """)
-   import altair as alt 
-   import pandas as pd 
+
    score_data = pd.DataFrame({ 
     'Indice': list(range(0, nREGISTROS)), 
     'QTD': df['QTD']
