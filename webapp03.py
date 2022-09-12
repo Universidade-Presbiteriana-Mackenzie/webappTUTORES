@@ -18,7 +18,7 @@ nREGISTROS = len(df)
 print(nREGISTROS)
 indice = list(range(0, nREGISTROS))
 saldo = sum(df['QTD'])
-
+quantidade = df['QTD']
 
 image01 = Image.open('desenvolvimento.jpg')
 # Use st.title("") para adicionar um TÍTULO ao seu Web app
@@ -49,7 +49,7 @@ if choice == "Saldo_ESTOQUE":
 
    score_data = pd.DataFrame({ 
     'Indice': list(range(0, nREGISTROS)), 
-    'QTD': df['QTD']
+    'QTD': quantidade
    }) 
    alt.Chart(score_data).mark_bar().encode(     
     x='Indice',     
