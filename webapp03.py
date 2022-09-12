@@ -42,7 +42,7 @@ st.sidebar.write("Texto Side Bar")
 
 if choice == "Saldo_ESTOQUE": 
     st.header("Saldo em ESTOQUE")
-    st.subheader(https://forms.gle/ofUVkwswMGGUBJms5)
+    st.subheader("Fonte: Google Forms em https://forms.gle/ofUVkwswMGGUBJms5")
     st.markdown(
     """
     Analise de Dados de Estoque
