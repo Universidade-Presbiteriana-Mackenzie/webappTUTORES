@@ -47,13 +47,20 @@ if choice == "Saldo_ESTOQUE":
     Analise de Dados de Estoque
     """)
 
-   score_data = pd.DataFrame({ 
-    'Indice': list(range(0, nREGISTROS)), 
-    'QTD': quantidade
-   }) 
-   alt.Chart(score_data).mark_bar().encode(     
-    x='Indice',     
-    y='QTD')    
+    a1, a2 = st.columns((1,1))
+    with a1:
+        st.info(
+        """
+        ##### ***using namespace std;***
+        Por exemplo, no caso de dois programadores em um mesmo projeto, digamos que cada um crie uma função void Funcao(void) que façam coisas absolutamente diferentes, uma forma de resolver esse conflito é usando um namespace diferente para cada programador.
+        Se você não usasse esse using namespace std quase todas as funções ou classes da biblioteca padrão que você usasse você teria que colocar um std:: antes. ***Os dois comandos mais usados do C++ sem declarar using namespace std precisao da palavra std na frente:***
+        ##### std::cout <<
+        ##### std::cin>> 
+        ##### Isso serve para te poupar de ficar digitando tanto!
+        """
+        )
+    with a2:
+        st.info(saldo)  
 elif choice == "Texto_Colunas":       
     st.subheader("Texto formatado em colunas")
     st.write("Veja a seguir uma opção de formatação em colunas")    
