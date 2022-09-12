@@ -51,12 +51,7 @@ if choice == "Saldo_ESTOQUE":
     with a1:
         st.info(
         """
-        ##### ***using namespace std;***
-        Por exemplo, no caso de dois programadores em um mesmo projeto, digamos que cada um crie uma função void Funcao(void) que façam coisas absolutamente diferentes, uma forma de resolver esse conflito é usando um namespace diferente para cada programador.
-        Se você não usasse esse using namespace std quase todas as funções ou classes da biblioteca padrão que você usasse você teria que colocar um std:: antes. ***Os dois comandos mais usados do C++ sem declarar using namespace std precisao da palavra std na frente:***
-        ##### std::cout <<
-        ##### std::cin>> 
-        ##### Isso serve para te poupar de ficar digitando tanto!
+        ##### ***Saldo atual = ***
         """
         )
     with a2:
