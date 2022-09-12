@@ -49,11 +49,7 @@ if choice == "Saldo_ESTOQUE":
 
     a1, a2 = st.columns((1,1))
     with a1:
-        st.info(
-        """
-        #*Saldo atual = *
-        """
-        )
+        st.subtitle("Saldo atual em estoque = ")
     with a2:
         st.info(saldo)  
 elif choice == "Texto_Colunas":       
