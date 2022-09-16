@@ -10,23 +10,20 @@ import plotly.graph_objects as go
 import altair as alt
 from urllib.error import URLError
 
-r = requests.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vRV5baBORyvGtdK6PClZKGT_ZnnYwTvnqx5EaSENnJDCHt7ScASx9Ztsc96cBW10v3ftgBQB25LfUc2/pub?gid=513803270&single=true&output=csv')
+r = requests.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vTcZCtGN-r35mPV_i1n-K1mQR6u6stcBNbynSz7vCujCOzJ22w9-gGTTO3Bb8Rm6pj-7JqChQf9Evaq/pub?gid=958030580&single=true&output=csv')
 data = r.content
 df = pd.read_csv(BytesIO(data), index_col=0)
-df.columns = ['e-mail', 'QTD']
+df.columns = ['e-mail', 'equipe', 'nome', 'duvida', 'obs']
 nREGISTROS = len(df)
 print(nREGISTROS)
 indice = list(range(0, nREGISTROS))
-saldo = sum(df['QTD'])
-quantidade = df['QTD']
 
 image01 = Image.open('desenvolvimento.jpg')
 # Use st.title("") para adicionar um TÍTULO ao seu Web app
-st.title("ANÁLISE DE DADOS")
-# Use st.header("") para adicionar um CABEÇALHO ao seu Web app
-# st.header("Cabeçalho")
+st.title(" 1ª EDIÇÃO DO DESAFIO HACKATHON: MACKENZIE WEEK CAMPINAS - LOGITHINK.IT 2022")
+st.header("PAINEL DE ACOMPANHAMENTO PARA OS TUTORES CCT")
 # Use st.subheader("") para adicionar um SUB CABEÇALHO ao seu Web app
-#st.subheader("Sub Cabeçalho")
+
 # Use st.write("") para adicionar um texto ao seu Web app
 #st.write("Como já deve ter percebido, o método st.write() é usado para escrita de texto e informações gerais!")
 st.subheader("------ **Desenvolvido por: Massaki de O. Igarashi** -----")
